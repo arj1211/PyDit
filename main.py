@@ -8,8 +8,23 @@ master.geometry("600x400")
 
 text = Text(master, width=600, height=400, font=("Courier New", 12), highlightthickness=0, bd=2)
 
-text.pack()
 
+def newln(e):
+    text.insert(INSERT, "\n-> ")
+    return 'break'
+
+
+def tabkey(e):
+    pass
+    # First: implement for only the second hierarchical level
+    # check if the only string on current line is "-> "
+    # if true, delete it, move insertion cursor to beginning of line
+    # and text.insert(INSERT,"\t->"
+    # return 'break'
+
+
+text.pack()
+text.bind('<Return>', newln)
 
 def new():
     ans = messagebox.askquestion(title="Save File", message="Save this file?")
